@@ -1,0 +1,1 @@
+INSERT INTO questions VALUES (id, 'question', 'answer', 'answers')

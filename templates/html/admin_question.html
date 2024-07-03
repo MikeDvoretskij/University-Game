@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>/* styles.css */
+
+body {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.admin-panel {
+    background-color: #1c1c1c;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 500px;
+}
+
+.admin-panel h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3c3c3c;
+    color: #ffffff;
+}
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Custom arrows for number input */
+.input-number-arrows {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 1%;
+    top: 73%;
+    transform: translateY(-50%);
+}
+
+.input-number-arrows button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    margin: 2px 0;
+}
+
+.input-number-arrows button:focus {
+    outline: none;
+}
+</style>
+<body>
+<div class="admin-panel">
+    <h1>Admin Panel</h1>
+    <form action="http://127.0.0.1:8000" method="post">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="number" id="id" name="id">
+            <div class="input-number-arrows">
+                <button type="button" class="increase">▲</button>
+                <button type="button" class="decrease">▼</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question">Question</label>
+            <input type="text" id="question" name="question">
+        </div>
+        <div class="form-group">
+            <label for="answer">Answer</label>
+            <input type="text" id="answer" name="answer">
+        </div>
+        <div class="form-group">
+            <label for="answers">Answers</label>
+            <textarea id="answers" name="answers"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="delete-btn">Delete</button>
+    </form>
+</div>
+<script>
+    // script.js
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const idInput = document.getElementById('id');
+        const increaseButton = document.querySelector('.increase');
+        const decreaseButton = document.querySelector('.decrease');
+
+        increaseButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            idInput.stepUp();
+        });
+
+        decreaseButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            idInput.stepDown();
+        });
+    });
+
+</script>
+</body>
+</html>

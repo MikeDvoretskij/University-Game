@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS questions (
+id SERIAL PRIMARY KEY,
+question TEXT NOT NULL,
+answer TEXT NOT NULL,
+answers TEXT NOT NULL
+);
